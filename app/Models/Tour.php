@@ -4,24 +4,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Hotel extends Model
+class Tour extends Model
 {
     //
     use HasFactory;
-
     protected $fillable = [
-        'name',
+        'title',
         'description',
-        'location',
+        'duration_days',
+        'price',
+        'seats',
         'image'
     ];
-
+    protected $casts = [
+        'price' => 'decimal:2'
+    ];
     // Relations
-    public function rooms()
-    {
-        return $this->hasMany(Room::class);
-    }
-
     public function bookings()
     {
         return $this->morphMany(Booking::class, 'service');

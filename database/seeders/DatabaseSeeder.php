@@ -13,11 +13,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Créer un utilisateur admin de test
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Test Admin',
+            'email' => 'admin@dreamstour.com',
+            'role' => 'admin'
+        ]);
+
+        // Créer des utilisateurs clients
+        User::factory(20)->create();
+
+        // Lancer le seeder du catalogue
+        $this->call([
+            CatalogueSeeder::class,
         ]);
     }
 }

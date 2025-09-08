@@ -1,32 +1,34 @@
-<?php $page="add-flight";?>
+<?php $page = 'add-flight'; ?>
 @extends('layout.mainlayout')
-@section('content')	
-@component('components.breadcrumb')
+@section('content')
+    @component('components.breadcrumb')
         @slot('title')
-		Add Flight
+            Add Flight
         @endslot
         @slot('item1')
-       index
+            index
         @endslot
         @slot('item2')
-		Add Flight
+            Add Flight
         @endslot
-       @endcomponent
+    @endcomponent
 
-     <!-- Page Wrapper -->
-     <div class="content">
+    <!-- Page Wrapper -->
+    <div class="content">
         <div class="container">
             <div class="place-nav">
                 <ul class="nav" role="tablist">
                     <li>
-                        <a href="javascript:void(0);" class="nav-link active" data-bs-toggle="tab" data-bs-target="#add_flight" aria-selected="true" role="tab">
-							Add New Flight
-						</a>
+                        <a href="javascript:void(0);" class="nav-link active" data-bs-toggle="tab" data-bs-target="#add_flight"
+                            aria-selected="true" role="tab">
+                            Add New Flight
+                        </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab" data-bs-target="#add_cabin" aria-selected="false" role="tab" tabindex="-1">
-							Add New Cabin
-						</a>
+                        <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab" data-bs-target="#add_cabin"
+                            aria-selected="false" role="tab" tabindex="-1">
+                            Add New Cabin
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -60,7 +62,7 @@
                         <!-- /Sidebar -->
 
                         <div class="col-lg-9">
-                            <form action="{{url('flight-grid')}}">
+                            <form action="{{ url('flight-grid') }}">
                                 <div class="card shadow-none" id="basic_info">
                                     <div class="card-header">
                                         <div class="d-flex align-items-center justify-content-between">
@@ -97,10 +99,11 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Launched On</label>
                                                     <div class="input-icon-end position-relative">
-                                                        <input type="text" class="form-control datetimepicker" placeholder="dd/mm/yyyy">
+                                                        <input type="text" class="form-control datetimepicker"
+                                                            placeholder="dd/mm/yyyy">
                                                         <span class="input-icon-addon">
-															<i class="isax isax-calendar"></i>
-														</span>
+                                                            <i class="isax isax-calendar"></i>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,10 +180,11 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Arrival Date</label>
                                                     <div class="input-icon-end position-relative">
-                                                        <input type="text" class="form-control datetimepicker" placeholder="dd/mm/yyyy">
+                                                        <input type="text" class="form-control datetimepicker"
+                                                            placeholder="dd/mm/yyyy">
                                                         <span class="input-icon-addon">
-															<i class="isax isax-calendar"></i>
-														</span>
+                                                            <i class="isax isax-calendar"></i>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,7 +192,8 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Arrival Time</label>
                                                     <div class="input-icon-end position-relative">
-                                                        <input type="text" class="form-control timepicker" placeholder="-- : -- : -- ">
+                                                        <input type="text" class="form-control timepicker"
+                                                            placeholder="-- : -- : -- ">
                                                         <span class="input-icon-addon">
                                                             <i class="ti ti-clock-hour-10 text-gray-7"></i>
                                                         </span>
@@ -199,10 +204,11 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Departure Date</label>
                                                     <div class="input-icon-end position-relative">
-                                                        <input type="text" class="form-control datetimepicker" placeholder="dd/mm/yyyy">
+                                                        <input type="text" class="form-control datetimepicker"
+                                                            placeholder="dd/mm/yyyy">
                                                         <span class="input-icon-addon">
-															<i class="isax isax-calendar"></i>
-														</span>
+                                                            <i class="isax isax-calendar"></i>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,7 +216,8 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Departure Time</label>
                                                     <div class="input-icon-end position-relative">
-                                                        <input type="text" class="form-control timepicker" placeholder="-- : -- : -- ">
+                                                        <input type="text" class="form-control timepicker"
+                                                            placeholder="-- : -- : -- ">
                                                         <span class="input-icon-addon">
                                                             <i class="ti ti-clock-hour-10 text-gray-7"></i>
                                                         </span>
@@ -296,7 +303,8 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm add-service"><i class="isax isax-add-circle me-1"></i>Add New</a>
+                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm add-service"><i
+                                                    class="isax isax-add-circle me-1"></i>Add New</a>
                                         </div>
                                     </div>
                                 </div>
@@ -311,31 +319,36 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Seating Comfort</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-01">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-01">
                                                     <label class="form-check-label ms-2" for="service-01">
                                                         Adjustable headrests
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-02">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-02">
                                                     <label class="form-check-label ms-2" for="service-02">
                                                         Extra legroom seats
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-03">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-03">
                                                     <label class="form-check-label ms-2" for="service-03">
                                                         Privacy dividers
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-04">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-04">
                                                     <label class="form-check-label ms-2" for="service-04">
                                                         Reclining seats
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-05">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-05">
                                                     <label class="form-check-label ms-2" for="service-05">
                                                         Reclining seats
                                                     </label>
@@ -344,31 +357,36 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Entertainment</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-07">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-07">
                                                     <label class="form-check-label ms-2" for="service-07">
                                                         Music and radio channels
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-08">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-08">
                                                     <label class="form-check-label ms-2" for="service-08">
                                                         Noise-canceling headphones
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-09">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-09">
                                                     <label class="form-check-label ms-2" for="service-09">
                                                         Personal seatback screens
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-010">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-010">
                                                     <label class="form-check-label ms-2" for="service-010">
                                                         Head Phones
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-011">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-011">
                                                     <label class="form-check-label ms-2" for="service-011">
                                                         Video games
                                                     </label>
@@ -377,31 +395,36 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Connectivity</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-013">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-013">
                                                     <label class="form-check-label ms-2" for="service-013">
                                                         In-flight Wi-Fi
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-014">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-014">
                                                     <label class="form-check-label ms-2" for="service-014">
                                                         Charging ports
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-015">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-015">
                                                     <label class="form-check-label ms-2" for="service-015">
                                                         Power outlets for laptops
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-016">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-016">
                                                     <label class="form-check-label ms-2" for="service-016">
                                                         Bluetooth headphone pairing
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-017">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-017">
                                                     <label class="form-check-label ms-2" for="service-017">
                                                         Translator Service
                                                     </label>
@@ -410,31 +433,36 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Dining</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-018">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-018">
                                                     <label class="form-check-label ms-2" for="service-018">
                                                         Beverages
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-019">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-019">
                                                     <label class="form-check-label ms-2" for="service-019">
                                                         Snacks and refreshments
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-020">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-020">
                                                     <label class="form-check-label ms-2" for="service-020">
                                                         Complimentary meals
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-021">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-021">
                                                     <label class="form-check-label ms-2" for="service-021">
                                                         Pre-Order Meals
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-022">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-022">
                                                     <label class="form-check-label ms-2" for="service-022">
                                                         Special Dietary Options
                                                     </label>
@@ -443,31 +471,36 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Bedding & Comfort</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-023">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-023">
                                                     <label class="form-check-label ms-2" for="service-023">
                                                         Pillows and blankets
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-024">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-024">
                                                     <label class="form-check-label ms-2" for="service-024">
                                                         Sleep masks
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-025">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-025">
                                                     <label class="form-check-label ms-2" for="service-025">
                                                         Foam Mattresses
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-026">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-026">
                                                     <label class="form-check-label ms-2" for="service-026">
                                                         Ambient Lighting
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-027">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-027">
                                                     <label class="form-check-label ms-2" for="service-027">
                                                         Earplugs
                                                     </label>
@@ -476,31 +509,36 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Accessibility Features</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-028">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-028">
                                                     <label class="form-check-label ms-2" for="service-028">
                                                         Wheelchair access
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-029">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-029">
                                                     <label class="form-check-label ms-2" for="service-029">
                                                         Braille seat numbers
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-030">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-030">
                                                     <label class="form-check-label ms-2" for="service-030">
                                                         Accessible restrooms
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-031">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-031">
                                                     <label class="form-check-label ms-2" for="service-031">
                                                         Wheelchair Assistance
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-032">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-032">
                                                     <label class="form-check-label ms-2" for="service-032">
                                                         Accessible Lavatories
                                                     </label>
@@ -516,13 +554,19 @@
                                     <div class="card-body">
                                         <div class="card shadow-none mb-3">
                                             <div class="card-body px-3 py-2">
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3">
-                                                    <h6><a href="javascript:void(0);">Does offer free cancellation for a full refund?</a></h6>
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap row-gap-3">
+                                                    <h6><a href="javascript:void(0);">Does offer free cancellation for a
+                                                            full refund?</a></h6>
                                                     <div class="d-flex align-items-center">
-                                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#edit_faq" class="rounded-edit d-flex align-items-center justify-content-center me-2">
+                                                        <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                            data-bs-target="#edit_faq"
+                                                            class="rounded-edit d-flex align-items-center justify-content-center me-2">
                                                             <i class="isax isax-edit-2"></i>
                                                         </a>
-                                                        <a href="javascript:void(0);" class="trash-icon d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#delete_modal">
+                                                        <a href="javascript:void(0);"
+                                                            class="trash-icon d-flex align-items-center justify-content-center"
+                                                            data-bs-toggle="modal" data-bs-target="#delete_modal">
                                                             <i class="isax isax-trash text-danger"></i>
                                                         </a>
                                                     </div>
@@ -531,13 +575,18 @@
                                         </div>
                                         <div class="card shadow-none mb-3">
                                             <div class="card-body px-3 py-2">
-                                                <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between flex-wrap row-gap-3">
                                                     <h6><a href="javascript:void(0);">Is there a pool?</a></h6>
                                                     <div class="d-flex align-items-center">
-                                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#edit_faq" class="rounded-edit d-flex align-items-center justify-content-center me-2">
+                                                        <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                            data-bs-target="#edit_faq"
+                                                            class="rounded-edit d-flex align-items-center justify-content-center me-2">
                                                             <i class="isax isax-edit-2"></i>
                                                         </a>
-                                                        <a href="javascript:void(0);" class="trash-icon d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#delete_modal">
+                                                        <a href="javascript:void(0);"
+                                                            class="trash-icon d-flex align-items-center justify-content-center"
+                                                            data-bs-toggle="modal" data-bs-target="#delete_modal">
                                                             <i class="isax isax-trash text-danger"></i>
                                                         </a>
                                                     </div>
@@ -545,7 +594,8 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#add_faq">
+                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm"
+                                                data-bs-toggle="modal" data-bs-target="#add_faq">
                                                 <i class="isax isax-add-circle me-1"></i>Add New
                                             </a>
                                         </div>
@@ -556,32 +606,49 @@
                                         <h5 class="fs-18">Gallery</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div class="file-upload drag-file w-100 d-flex align-items-center justify-content-center flex-column mb-2">
-                                            <span class="upload-img d-block mb-2"><i class="isax isax-document-upload fs-24"></i></span>
+                                        <div
+                                            class="file-upload drag-file w-100 d-flex align-items-center justify-content-center flex-column mb-2">
+                                            <span class="upload-img d-block mb-2"><i
+                                                    class="isax isax-document-upload fs-24"></i></span>
                                             <h6 class="mb-1">Upload Gallery Images</h6>
                                             <p class="mb-0">Upload Feature Image First, Image size should below 5MB</p>
                                             <input type="file" accept="video/image">
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-01.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-01.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-02.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-02.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-03.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-03.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-04.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-04.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-05.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-05.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                         </div>
                                     </div>
@@ -626,7 +693,7 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
-                            <form action="{{url('flight-grid')}}">
+                            <form action="{{ url('flight-grid') }}">
                                 <div class="card shadow-none" id="basic_info_2">
                                     <div class="card-header">
                                         <div class="d-flex align-items-center justify-content-between">
@@ -721,25 +788,29 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Seating Comfort</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-1">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-1">
                                                     <label class="form-check-label ms-2" for="service-1">
                                                         Adjustable headrests
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-2">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-2">
                                                     <label class="form-check-label ms-2" for="service-2">
                                                         Extra legroom seats
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-3">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-3">
                                                     <label class="form-check-label ms-2" for="service-3">
                                                         Privacy dividers
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-4">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-4">
                                                     <label class="form-check-label ms-2" for="service-4">
                                                         Reclining seats
                                                     </label>
@@ -748,25 +819,29 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Entertainment</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-7">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-7">
                                                     <label class="form-check-label ms-2" for="service-7">
                                                         Music and radio channels
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-8">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-8">
                                                     <label class="form-check-label ms-2" for="service-8">
                                                         Noise-canceling headphones
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-9">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-9">
                                                     <label class="form-check-label ms-2" for="service-9">
                                                         Personal seatback screens
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-11">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-11">
                                                     <label class="form-check-label ms-2" for="service-11">
                                                         Video games
                                                     </label>
@@ -775,25 +850,29 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Connectivity</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-13">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-13">
                                                     <label class="form-check-label ms-2" for="service-13">
                                                         In-flight Wi-Fi
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-14">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-14">
                                                     <label class="form-check-label ms-2" for="service-14">
                                                         Charging ports
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-15">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-15">
                                                     <label class="form-check-label ms-2" for="service-15">
                                                         Power outlets for laptops
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-16">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-16">
                                                     <label class="form-check-label ms-2" for="service-16">
                                                         Bluetooth headphone pairing
                                                     </label>
@@ -802,19 +881,22 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Dining</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-18">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-18">
                                                     <label class="form-check-label ms-2" for="service-18">
                                                         Beverages
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-19">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-19">
                                                     <label class="form-check-label ms-2" for="service-19">
                                                         Snacks and refreshments
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-20">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-20">
                                                     <label class="form-check-label ms-2" for="service-20">
                                                         Complimentary meals
                                                     </label>
@@ -823,19 +905,22 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Bedding & Comfort</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-23">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-23">
                                                     <label class="form-check-label ms-2" for="service-23">
                                                         Pillows and blankets
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-24">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-24">
                                                     <label class="form-check-label ms-2" for="service-24">
                                                         Sleep masks
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-25">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-25">
                                                     <label class="form-check-label ms-2" for="service-25">
                                                         Earplugs
                                                     </label>
@@ -844,19 +929,22 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <h6 class="fs-16 mb-2">Accessibility Features</h6>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-28">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-28">
                                                     <label class="form-check-label ms-2" for="service-28">
                                                         Wheelchair access
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-29">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-29">
                                                     <label class="form-check-label ms-2" for="service-29">
                                                         Braille seat numbers
                                                     </label>
                                                 </div>
                                                 <div class="form-check d-flex align-items-center ps-0 mb-2">
-                                                    <input class="form-check-input ms-0 mt-0" type="checkbox" id="service-30">
+                                                    <input class="form-check-input ms-0 mt-0" type="checkbox"
+                                                        id="service-30">
                                                     <label class="form-check-label ms-2" for="service-30">
                                                         Accessible restrooms
                                                     </label>
@@ -870,32 +958,49 @@
                                         <h5 class="fs-18">Gallery</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div class="file-upload drag-file w-100 d-flex align-items-center justify-content-center flex-column mb-2">
-                                            <span class="upload-img d-block mb-2"><i class="isax isax-document-upload fs-24"></i></span>
+                                        <div
+                                            class="file-upload drag-file w-100 d-flex align-items-center justify-content-center flex-column mb-2">
+                                            <span class="upload-img d-block mb-2"><i
+                                                    class="isax isax-document-upload fs-24"></i></span>
                                             <h6 class="mb-1">Upload Gallery Images</h6>
                                             <p class="mb-0">Upload Feature Image First, Image size should below 5MB</p>
                                             <input type="file" accept="video/image">
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-01.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-01.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-02.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-02.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-03.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-03.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-04.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-04.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                             <a href="javascript:void(0);" class="gallery-upload-img me-2">
-                                                <img src="{{URL::asset('build/img/uploads/upload-05.jpg')}}" alt="Img">
-                                                <span class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i class="isax isax-trash"></i></span>
+                                                <img src="{{ URL::asset('build/img/uploads/upload-05.jpg') }}"
+                                                    alt="Img">
+                                                <span
+                                                    class="trash-icon d-flex align-items-center justify-content-center text-danger gallery-trash"><i
+                                                        class="isax isax-trash"></i></span>
                                             </a>
                                         </div>
                                     </div>
@@ -916,5 +1021,4 @@
     <!-- /Page Wrapper -->
     @component('components.modal-popup')
     @endcomponent
-
 @endsection
