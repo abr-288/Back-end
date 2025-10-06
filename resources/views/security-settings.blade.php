@@ -246,6 +246,155 @@
             </div>
             <!-- /Profile Settings -->
         </div>
+            </div>
+            <!-- /Sidebar -->
+
+            <!-- Security Settings -->
+            <div class="col-xl-9 col-lg-8">
+                <div class="card settings mb-0">
+                    <div class="card-header">
+                        <h6>Security Settings</h6>
+                    </div>
+                    <div class="card-body pb-3">
+                        <div class="settings-link d-flex align-items-center flex-wrap">
+                            <a href="{{url('profile-settings')}}"><i class="isax isax-user-octagon me-2"></i>Profile Settings</a>
+                            <a href="{{url('security-settings')}}" class="active ps-3"><i class="isax isax-shield-tick me-2"></i>Security</a>
+                            <a href="{{url('notification-settings')}}"><i class="isax isax-notification me-2"></i>Notifications</a>
+                            <a href="{{url('integration-settings')}}" class="pe-3"><i class="isax isax-hierarchy me-2"></i>Integrations</a>
+                        </div>
+
+                        <!-- Two-Factor Authentication Section -->
+                        <div class="settings-content mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="fs-16 mb-0">Two-Factor Authentication</h6>
+                                @if(auth()->user()->two_factor_secret)
+                                    <span class="badge bg-success">Activée</span>
+                                @else
+                                    <span class="badge bg-secondary">Désactivée</span>
+                                @endif
+                            </div>
+                            
+                            <p class="fs-14 text-gray-6 mb-4">
+                                Ajoutez une sécurité supplémentaire à votre compte en activant l'authentification à deux facteurs.
+                            </p>
+
+                            @if(session('status') == 'two-factor-authentication-enabled')
+                                <div class="alert alert-success">
+                                    Veuillez scanner le code QR suivant avec votre application d'authentification Google Authenticator ou une application similaire :
+                                </div>
+                                
+                                <div class="text-center my-4">
+                                    {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                                </div>
+                                
+                                <p class="fs-14 text-gray-6 mb-4">
+                                    <strong>Code de configuration :</strong> {{ decrypt(auth()->user()->two_factor_secret) }}
+                                </p>
+                                
+                                <p class="fs-14 text-gray-6 mb-4">
+                                    <strong>Codes de récupération :</strong>
+                                    @foreach(json_decode(decrypt(auth()->user()->two_factor_recovery_codes), true) as $code)
+                                        <div>{{ $code }}</div>
+                                    @endforeach
+                                </p>
+                                
+                                <div class="alert alert-warning">
+                                    <strong>Important :</strong> Conservez ces codes de récupération dans un endroit sûr. Ils vous permettront de récupérer l'accès à votre compte si vous perdez votre appareil d'authentification.
+                                </div>
+                            @endif
+
+                            @if(auth()->user()->two_factor_secret)
+                                <form method="POST" action="{{ route('two-factor.disable') }}" class="mt-3">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                        Désactiver l'authentification à deux facteurs
+                                    </button>
+                                </form>
+                                
+                                <div class="mt-4">
+                                    <h6 class="fs-16 mb-3">Codes de récupération</h6>
+                                    <p class="fs-14 text-gray-6 mb-3">
+                                        Ces codes peuvent être utilisés pour accéder à votre compte si vous perdez votre appareil d'authentification.
+                                    </p>
+                                    
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#recoveryCodesModal">
+                                        Afficher les codes de récupération
+                                    </button>
+                                    
+                                    <!-- Modal pour afficher les codes de récupération -->
+                                    <div class="modal fade" id="recoveryCodesModal" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Codes de récupération</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="alert alert-warning">
+                                                        <p class="mb-2">Conservez ces codes dans un endroit sûr. Chaque code ne peut être utilisé qu'une seule fois.</p>
+                                                    </div>
+                                                    <div class="bg-light p-3 rounded">
+                                                        @foreach(json_decode(decrypt(auth()->user()->two_factor_recovery_codes), true) as $code)
+                                                            <div class="font-monospace">{{ $code }}</div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <form method="POST" action="{{ route('two-factor.enable') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">
+                                        Activer l'authentification à deux facteurs
+                                    </button>
+                                </form>
+                            @endif
+                        </div>
+                        <!-- /Two-Factor Authentication Section -->
+                        
+                        <!-- Change Password Section -->
+                        <div class="settings-content">
+                            <h6 class="fs-16 mb-3">Change Password</h6>
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Current Password</label>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">New Password</label>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Confirm New Password</label>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Update Password</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /Change Password Section -->
+                    </div>
+                </div>
+            </div>
+            <!-- /Security Settings -->
+        </div>
     </div>
 </div>
 <!-- /Page Wrapper -->

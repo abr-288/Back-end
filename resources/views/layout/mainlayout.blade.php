@@ -6,6 +6,26 @@
 <html lang="en" dir="rtl">
 @endif
 <head>
+    <!-- CSS Libraries -->
+    <link href="{{ asset('build/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/css/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/plugins/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/plugins/owl.carousel/assets/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    @vite([
+        'resources/css/app.css',
+        'resources/css/style.css',
+        'resources/css/meanmenu.css',
+        'resources/css/bootstrap-datetimepicker.min.css',
+        'resources/css/components/loader.css',
+        'resources/css/components/image-fallback.css'
+    ])
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
@@ -46,23 +66,26 @@
 @if(Route::is(['coming-soon']))
 <body class="coming-soon-bg">
 @endif  
-
 @if(!Route::is(['login','register','forgot-password','change-password','error-404','error-500','under-maintenance','coming-soon']))
 @include('layout.partials.header')
 @endif
 @yield('content')
 @if(!Route::is(['login','register','forgot-password','change-password','error-404','error-500','under-maintenance','coming-soon']))
-@include('layout.partials.footer')
+    @include('layout.partials.footer')
+    
+    <!-- JavaScript Libraries -->
+    <script src="{{ asset('build/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('build/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('build/plugins/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('build/js/select2.min.js') }}"></script>
+    <script src="{{ asset('build/js/moment.min.js') }}"></script>
+    <script src="{{ asset('build/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    
+    <!-- Custom JavaScript -->
+    @vite(['resources/js/app.js'])
+    
+    @include('layout.partials.footer-scripts')
 @endif
-
- <!-- Cursor -->
- <div class="xb-cursor tx-js-cursor">
-  <div class="xb-cursor-wrapper">
-      <div class="xb-cursor--follower xb-js-follower"></div>
-  </div>
-</div>
-<!-- /Cursor -->
-
 <div class="back-to-top">
 <a class="back-to-top-icon align-items-center justify-content-center d-flex"  href="#top"><i class="fa-solid fa-arrow-up"></i></a>
 </div>

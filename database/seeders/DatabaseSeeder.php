@@ -13,11 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            HotelSeeder::class,
+            RoomTypeSeeder::class,
         ]);
+
+        // Créer un utilisateur admin
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'is_admin' => true,
+        ]);
+
+        // Créer des utilisateurs de test
+        User::factory(10)->create();
     }
 }

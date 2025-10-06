@@ -1,0 +1,122 @@
+/* Loader Styles */
+#loader-wrapper {
+    background-color: #FFF;
+    height: 100%;
+    width: 100%;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+#loader-wrapper.loading {
+    pointer-events: auto;
+    display: flex;
+}
+
+#loader-wrapper.hidden {
+    opacity: 0;
+    pointer-events: none;
+    display: none !important;
+}
+
+#loader-wrapper.fade-out {
+    opacity: 0;
+}
+
+/* Arrêt de l'animation quand le loader est caché */
+#loader-wrapper.hidden #loader .loader-line::before,
+#loader-wrapper.fade-out #loader .loader-line::before {
+    animation: none !important;
+    -webkit-animation: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+}
+
+#loader {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-line {
+    display: inline-grid;
+    width: 40px;
+    aspect-ratio: 1;
+    margin: 30px;
+}
+
+.loader-line::before,
+.loader-line::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: repeating-conic-gradient(#264f4b 0 60deg, #1A1A1A 0 120deg);
+}
+
+.loader-line::before {
+    transform: rotate(0turn) translate(100%) rotate(0turn);
+    animation: l5 4s linear infinite;
+    animation-play-state: running; /* Par défaut, l'animation est en cours */
+    will-change: transform; /* Optimisation des performances */
+}
+
+/* Arrêter l'animation quand le loader est caché */
+#loader-wrapper.hidden .loader-line::before,
+#loader-wrapper.fade-out .loader-line::before {
+    animation: none !important;
+    -webkit-animation: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+}
+
+.loader-line::after {
+    padding: 20%;
+    mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+    scale: -1 1;
+}
+
+@keyframes l5 {
+    to {
+        transform: rotate(1turn) translate(100%) rotate(1turn);
+    }
+}
+
+/* Animation de sortie */
+#loader-wrapper.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Désactiver complètement le loader quand il est caché */
+#loader-wrapper.hidden {
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1000;
+}
+
+/* Dark mode support */
+.dark-mode #loader-wrapper {
+    background: #0D0D0D;
+}
+
+/* Assurer que le body n'a pas de défilement pendant le chargement */
+body.loading {
+    overflow: hidden;
+    height: 100vh;
+}

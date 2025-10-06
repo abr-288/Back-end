@@ -1,62 +1,91 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 export default defineConfig({
-    build: {
-        manifest: true,
-        rtl: true,
-        outDir: 'public/build/',
-        cssCodeSplit: true,
-        rollupOptions: {
-            output: {
-                assetFileNames: (css) => {
-                    if (css.name.split('.').pop() == 'css') {
-                        return 'css/' + `[name]` + '.min.' + 'css';
-                    } else {
-                        return 'icons/' + css.name;
-                    }
-                },
-                entryFileNames: 'js/' + `[name]` + `.js`,
-            },
-        },
-    },
     plugins: [
         laravel({
-            input: ['resources/css/style.css', 'resources/js/script.js'],
+            input: [
+                'resources/css/app.css',
+                'resources/css/style.css',
+                'resources/css/meanmenu.css',
+                'resources/css/bootstrap-datetimepicker.min.css',
+                'resources/css/components/loader.css',
+                'resources/css/components/image-fallback.css',
+                'resources/js/app.js'
+            ],
             refresh: true,
         }),
-
+        // Copier les fichiers statiques
         viteStaticCopy({
             targets: [
                 {
-                    src: 'resources/css',
-                    dest: ''
+                    src: 'resources/img/**/*',
+                    dest: 'build/img'
                 },
                 {
-                    src: 'resources/scss',
-                    dest: ''
+                    src: 'resources/plugins/**/*',
+                    dest: 'build/plugins'
                 },
                 {
-                    src: 'resources/fonts',
-                    dest: ''
+                    src: 'resources/fonts/**/*',
+                    dest: 'build/fonts'
                 },
                 {
-                    src: 'resources/img',
-                    dest: ''
+                    src: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                    dest: 'build/css'
                 },
                 {
-                    src: 'resources/js',
-                    dest: ''
+                    src: 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+                    dest: 'build/js'
                 },
-               
                 {
-                    src: 'resources/plugins',
-                    dest: ''
+                    src: 'node_modules/jquery/dist/jquery.min.js',
+                    dest: 'build/js'
                 },
-               
+                {
+                    src: 'node_modules/owl.carousel/dist/**/*',
+                    dest: 'build/plugins/owl.carousel'
+                },
+                {
+                    src: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+                    dest: 'build/css'
+                },
+                {
+                    src: 'node_modules/@fortawesome/fontawesome-free/webfonts/*',
+                    dest: 'build/webfonts'
+                },
+                {
+                    src: 'node_modules/select2/dist/css/select2.min.css',
+                    dest: 'build/css'
+                },
+                {
+                    src: 'node_modules/select2/dist/js/select2.min.js',
+                    dest: 'build/js'
+                },
+                {
+                    src: 'node_modules/moment/min/moment.min.js',
+                    dest: 'build/js'
+                },
+                {
+                    src: 'node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css',
+                    dest: 'build/css'
+                },
+                {
+                    src: 'node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js',
+                    dest: 'build/js'
+                }
             ]
-        }),
+        })
     ],
+    resolve: {
+        alias: {
+            '$': 'jquery',
+            'jquery': 'jquery/src/jquery',
+        }
+    },
+    optimizeDeps: {
+        include: ['jquery'],
+        exclude: ['jquery']
+    }
 });
